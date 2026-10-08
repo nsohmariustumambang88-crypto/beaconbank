@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer components {
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 0 0% 3.6%;

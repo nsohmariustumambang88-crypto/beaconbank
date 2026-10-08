@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: ["class", ".dark"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -10,6 +10,9 @@ const config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         border: "#e5e7eb",
         input: "#e5e7eb",

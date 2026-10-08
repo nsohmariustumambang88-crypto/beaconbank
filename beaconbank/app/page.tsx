@@ -5,11 +5,12 @@ import gsap from "gsap"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Shield, TrendingUp, RefreshCw, CheckCircle2, Users, Zap, Lock } from "lucide-react"
+import { ArrowRight, Shield, TrendingUp, RefreshCw, CheckCircle2, Users, Zap, Lock, Menu, X } from "lucide-react"
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [stats, setStats] = useState({ users: 0, transactions: 0, recovered: 0 })
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,43 +57,84 @@ export default function Home() {
     return () => ctx.revert()
   }, [])
 
+  const navLinks = [
+    { label: "💳 Wallet", href: "/services/wallet" },
+    { label: "⚡ Transfers", href: "/services/transfers" },
+    { label: "↩️ Refunds", href: "/services/refunds" },
+    { label: "🔍 Recovery", href: "/services/recovery" },
+    { label: "🏪 Marketplace", href: "/services/marketplace" },
+    { label: "🛡️ Security", href: "/services/security" },
+  ]
+
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🏦</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 md:h-16">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center">
+              <span className="text-white font-bold text-base md:text-lg">🏦</span>
             </div>
-            <span className="font-semibold text-lg text-foreground">BeaconBank</span>
+            <span className="font-semibold text-base md:text-lg text-foreground hidden xs:inline">BeaconBank</span>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 md:gap-6">
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <Link href="/services/wallet" className="text-sm hover:text-primary transition">💳 Wallet</Link>
-              <Link href="/services/transfers" className="text-sm hover:text-primary transition">⚡ Transfers</Link>
-              <Link href="/services/refunds" className="text-sm hover:text-primary transition">↩️ Refunds</Link>
-              <Link href="/services/recovery" className="text-sm hover:text-primary transition">🔍 Recovery</Link>
-              <Link href="/services/marketplace" className="text-sm hover:text-primary transition">🏪 Marketplace</Link>
-              <Link href="/services/security" className="text-sm hover:text-primary transition">🛡️ Security</Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="text-xs lg:text-sm hover:text-primary transition duration-200">
+                  {link.label}
+                </Link>
+              ))}
             </div>
-            <Link href="/login">
-              <Button size="sm">Sign In</Button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-muted transition touch-target"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+
+            {/* Sign In Button */}
+            <Link href="/login" className="hidden sm:block">
+              <Button size="sm" className="text-xs md:text-sm py-1.5 md:py-2 h-auto">Sign In</Button>
             </Link>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-md">
+            <div className="px-4 py-3 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2.5 rounded-lg hover:bg-muted transition text-sm text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="block sm:hidden">
+                <Button className="w-full text-sm py-2 h-auto">Sign In</Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+              <h1 className="hero-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
                 Expert
                 <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="text-primary">
                   Financial
                 </span>
                 <br />
@@ -100,18 +142,18 @@ export default function Home() {
               </h1>
             </div>
 
-            <p className="hero-subtitle text-lg text-muted-foreground max-w-lg leading-relaxed">
+            <p className="hero-subtitle text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
               BeaconBank is a comprehensive banking SaaS platform specializing in secure transfers, intelligent fund recovery, and effortless refund management—your trusted guide through every financial decision.
             </p>
 
-            <div className="hero-cta flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/register">
-                <Button size="lg" className="gap-2 w-full sm:w-auto">
+            <div className="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
+              <Link href="/register" className="w-full sm:w-auto">
+                <Button size="lg" className="gap-2 w-full h-11 md:h-12 text-sm md:text-base">
                   Open Account <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <a href="#services">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <a href="#services" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full h-11 md:h-12 text-sm md:text-base">
                   Explore Services
                 </Button>
               </a>
@@ -119,12 +161,12 @@ export default function Home() {
           </div>
 
           {/* Right Column - Visual */}
-          <div className="hero-visual relative">
+          <div className="hero-visual relative hidden md:block">
             <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
             <img
               src="/images/hero-illustration.svg"
               alt="BeaconBank Digital Wallet with Multi-Currency Support"
-              className="w-full drop-shadow-lg rounded-2xl"
+              className="w-full max-w-md mx-auto drop-shadow-lg rounded-2xl"
               loading="lazy"
             />
           </div>
@@ -132,43 +174,45 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-y border-border/40">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="grid grid-cols-1 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 border-y border-border/40">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <div className="grid grid-cols-3 gap-4 md:gap-8">
               <div className="text-center">
-                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">{stats.users.toLocaleString()}</p>
-                <p className="text-muted-foreground mt-2">Active Users</p>
+                <p className="stat-number text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary">{stats.users.toLocaleString()}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1 md:mt-2">Active Users</p>
               </div>
               <div className="text-center">
-                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.transactions / 1000000).toFixed(1)}M</p>
-                <p className="text-muted-foreground mt-2">Transactions Processed</p>
+                <p className="stat-number text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary">${(stats.transactions / 1000000).toFixed(1)}M</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1 md:mt-2">Transactions</p>
               </div>
               <div className="text-center">
-                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.recovered / 1000000).toFixed(1)}M</p>
-                <p className="text-muted-foreground mt-2">Funds Recovered</p>
+                <p className="stat-number text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary">${(stats.recovered / 1000000).toFixed(1)}M</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1 md:mt-2">Recovered</p>
               </div>
             </div>
           </div>
-          <img
-            src="/images/growth-chart.svg"
-            alt="BeaconBank Revenue Growth Chart"
-            className="w-full drop-shadow-lg"
-            loading="lazy"
-          />
+          <div className="order-1 md:order-2">
+            <img
+              src="/images/growth-chart.svg"
+              alt="BeaconBank Revenue Growth Chart"
+              className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Explore Our Range of Expert Financial Solutions</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-3 md:mb-4">Explore Our Range of Expert Financial Solutions</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Discover comprehensive financial services designed to protect your wealth and maximize your opportunities
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {[
             {
               icon: "💳",
@@ -208,15 +252,15 @@ export default function Home() {
             },
           ].map((service, i) => (
             <Link key={i} href={service.link}>
-              <Card className="feature-card border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full">
+              <Card className="feature-card border-border/50 hover:border-primary/30 transition-colors cursor-pointer h-full active:scale-95 md:hover:scale-105 md:transition-transform">
                 <CardHeader>
-                  <div className="text-4xl mb-3">{service.icon}</div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <div className="text-3xl md:text-4xl mb-3">{service.icon}</div>
+                  <CardTitle className="text-base md:text-lg">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button variant="ghost" size="sm" className="gap-1 p-0">
-                    Learn More <ArrowRight className="w-4 h-4" />
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-4">{service.description}</p>
+                  <Button variant="ghost" size="sm" className="gap-1 p-0 h-auto text-xs md:text-sm">
+                    Learn More <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -226,15 +270,15 @@ export default function Home() {
       </section>
 
       {/* Trust Section */}
-      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-12 md:p-20 border border-primary/20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our Journey of Trust & Financial Excellence</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 lg:p-20 border border-primary/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-4 md:mb-6">Our Journey of Trust & Financial Excellence</h2>
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                 At BeaconBank, we believe transparent, secure financial services should be accessible to everyone. Founded on principles of trust, we've helped thousands of users recover funds, process refunds, and manage their money with confidence.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {[
                   "Client-centric approach in every decision",
                   "Industry-leading security standards",
@@ -242,31 +286,33 @@ export default function Home() {
                   "24/7 customer support team",
                   "Award-winning fraud detection AI",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{item}</span>
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <img
-              src="/images/team-trust.svg"
-              alt="Our Journey of Trust - BeaconBank Team"
-              className="w-full max-w-md mx-auto drop-shadow-lg"
-              loading="lazy"
-            />
+            <div className="order-1 md:order-2">
+              <img
+                src="/images/team-trust.svg"
+                alt="Our Journey of Trust - BeaconBank Team"
+                className="w-full max-w-xs mx-auto drop-shadow-lg rounded-lg"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Trusted by Thousands Worldwide</h2>
-          <p className="text-lg text-muted-foreground">Real stories from real users who've transformed their financial lives</p>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-2 md:mb-4">Trusted by Thousands Worldwide</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">Real stories from real users who've transformed their financial lives</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {[
             {
               name: "Sarah Mitchell",
@@ -287,17 +333,17 @@ export default function Home() {
               rating: 5,
             },
           ].map((testimonial, i) => (
-            <Card key={i} className="testimonial-card border-border/50 bg-card/50">
-              <CardContent className="p-6">
-                <div className="flex gap-1 mb-4">
+            <Card key={i} className="testimonial-card border-border/50 bg-card/50 active:scale-95 md:hover:scale-105 md:transition-transform">
+              <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col h-full">
+                <div className="flex gap-1 mb-3 md:mb-4">
                   {[...Array(testimonial.rating)].map((_, j) => (
                     <span key={j} className="text-lg">⭐</span>
                   ))}
                 </div>
-                <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-xs sm:text-sm md:text-base text-foreground mb-4 md:mb-6 italic flex-grow">"{testimonial.content}"</p>
                 <div>
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <p className="font-semibold text-xs sm:text-sm md:text-base text-foreground">{testimonial.name}</p>
+                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </CardContent>
             </Card>
@@ -306,20 +352,20 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-12 md:p-20 border border-primary/20">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ready to Experience Transparent Banking?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
+        <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 lg:p-20 border border-primary/20">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-3 md:mb-4">Ready to Experience Transparent Banking?</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto leading-relaxed">
             Join thousands of users who trust BeaconBank for secure transfers, intelligent fund recovery, and hassle-free refunds.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register">
-              <Button size="lg" className="gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/register" className="w-full sm:w-auto">
+              <Button size="lg" className="gap-2 w-full sm:w-auto h-11 md:h-12 text-sm md:text-base">
                 Start Your Journey <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <a href="#services">
-              <Button variant="outline" size="lg">
+            <a href="#services" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto h-11 md:h-12 text-sm md:text-base">
                 Learn More
               </Button>
             </a>
@@ -328,47 +374,47 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-12 bg-background/50">
+      <footer className="border-t border-border/40 py-8 md:py-12 bg-background/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center">
-                  <span className="text-white font-bold">🏦</span>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8">
+            <div className="col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-xs md:text-sm">🏦</span>
                 </div>
-                <span className="font-semibold">BeaconBank</span>
+                <span className="font-semibold text-sm md:text-base">BeaconBank</span>
               </div>
-              <p className="text-sm text-muted-foreground">Trusted financial services for everyone.</p>
+              <p className="text-xs md:text-sm text-muted-foreground">Trusted financial services for everyone.</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary">Digital Wallet</a></li>
-                <li><a href="#" className="hover:text-primary">Transfers</a></li>
-                <li><a href="#" className="hover:text-primary">Fund Recovery</a></li>
-                <li><a href="#" className="hover:text-primary">Refunds</a></li>
+              <h4 className="font-semibold text-xs md:text-sm mb-3">Services</h4>
+              <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition">Wallet</a></li>
+                <li><a href="#" className="hover:text-primary transition">Transfers</a></li>
+                <li><a href="#" className="hover:text-primary transition">Recovery</a></li>
+                <li><a href="#" className="hover:text-primary transition">Refunds</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary">About</a></li>
-                <li><a href="#" className="hover:text-primary">Blog</a></li>
-                <li><a href="#" className="hover:text-primary">Careers</a></li>
-                <li><a href="#" className="hover:text-primary">Contact</a></li>
+              <h4 className="font-semibold text-xs md:text-sm mb-3">Company</h4>
+              <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition">About</a></li>
+                <li><a href="#" className="hover:text-primary transition">Blog</a></li>
+                <li><a href="#" className="hover:text-primary transition">Careers</a></li>
+                <li><a href="#" className="hover:text-primary transition">Contact</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary">Privacy</a></li>
-                <li><a href="#" className="hover:text-primary">Terms</a></li>
-                <li><a href="#" className="hover:text-primary">Security</a></li>
-                <li><a href="#" className="hover:text-primary">Compliance</a></li>
+              <h4 className="font-semibold text-xs md:text-sm mb-3">Legal</h4>
+              <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition">Privacy</a></li>
+                <li><a href="#" className="hover:text-primary transition">Terms</a></li>
+                <li><a href="#" className="hover:text-primary transition">Security</a></li>
+                <li><a href="#" className="hover:text-primary transition">Compliance</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-border/40 pt-8 text-center text-muted-foreground">
+          <div className="border-t border-border/40 pt-6 md:pt-8 text-center text-xs md:text-sm text-muted-foreground">
             <p>© 2026 BeaconBank. All rights reserved. | Secure • Transparent • Trusted</p>
           </div>
         </div>

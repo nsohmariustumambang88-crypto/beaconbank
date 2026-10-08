@@ -35,7 +35,13 @@ export default function SecurityPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
         {/* Hero */}
         <div className="hero-section grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+          <img
+            src="/images/security-illustration.svg"
+            alt="Security & Encryption - Military Grade Protection"
+            className="w-full drop-shadow-lg rounded-2xl order-2 md:order-1"
+            loading="lazy"
+          />
+          <div className="order-1 md:order-2">
             <h2 className="text-4xl font-bold text-foreground mb-6">
               Your Security is <span className="text-primary">Our Priority</span>
             </h2>

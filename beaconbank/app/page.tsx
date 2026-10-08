@@ -115,57 +115,41 @@ export default function Home() {
           {/* Right Column - Visual */}
           <div className="hero-visual relative">
             <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
-            <Card className="border-primary/20 bg-card/50 backdrop-blur overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10">
-                <CardTitle className="text-primary">Your Financial Dashboard</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  {/* Balance Display */}
-                  <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-4 border border-primary/20">
-                    <p className="text-sm text-muted-foreground mb-2">Total Balance</p>
-                    <p className="text-3xl font-bold text-primary">$24,568.90</p>
-                  </div>
-
-                  {/* Quick Stats */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <p className="text-xs text-muted-foreground">Transfers</p>
-                      <p className="text-xl font-semibold text-foreground">247</p>
-                    </div>
-                    <div className="p-3 bg-muted/50 rounded-lg">
-                      <p className="text-xs text-muted-foreground">Refunds</p>
-                      <p className="text-xl font-semibold text-foreground">$3,450</p>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button variant="outline" size="sm" className="text-xs">Send Money</Button>
-                    <Button variant="outline" size="sm" className="text-xs">Request Funds</Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <img
+              src="/images/hero-illustration.svg"
+              alt="BeaconBank Digital Wallet with Multi-Currency Support"
+              className="w-full drop-shadow-lg rounded-2xl"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-y border-border/40">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <p className="stat-number text-4xl md:text-5xl font-bold text-primary">{stats.users.toLocaleString()}</p>
-            <p className="text-muted-foreground mt-2">Active Users</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="grid grid-cols-1 gap-8">
+              <div className="text-center">
+                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">{stats.users.toLocaleString()}</p>
+                <p className="text-muted-foreground mt-2">Active Users</p>
+              </div>
+              <div className="text-center">
+                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.transactions / 1000000).toFixed(1)}M</p>
+                <p className="text-muted-foreground mt-2">Transactions Processed</p>
+              </div>
+              <div className="text-center">
+                <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.recovered / 1000000).toFixed(1)}M</p>
+                <p className="text-muted-foreground mt-2">Funds Recovered</p>
+              </div>
+            </div>
           </div>
-          <div className="text-center">
-            <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.transactions / 1000000).toFixed(1)}M</p>
-            <p className="text-muted-foreground mt-2">Transactions Processed</p>
-          </div>
-          <div className="text-center">
-            <p className="stat-number text-4xl md:text-5xl font-bold text-primary">${(stats.recovered / 1000000).toFixed(1)}M</p>
-            <p className="text-muted-foreground mt-2">Funds Recovered</p>
-          </div>
+          <img
+            src="/images/growth-chart.svg"
+            alt="BeaconBank Revenue Growth Chart"
+            className="w-full drop-shadow-lg"
+            loading="lazy"
+          />
         </div>
       </section>
 
@@ -259,22 +243,12 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { icon: Shield, label: "Security First", value: "256-bit Encryption" },
-                { icon: Users, label: "Global Reach", value: "160+ Countries" },
-                { icon: TrendingUp, label: "Growth", value: "$2.5B Processed" },
-                { icon: Zap, label: "Speed", value: "<2s Settlement" },
-              ].map((item, i) => (
-                <Card key={i} className="bg-card/50 border-primary/20">
-                  <CardContent className="p-6 text-center">
-                    <item.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="text-lg font-semibold text-foreground mt-2">{item.value}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <img
+              src="/images/team-trust.svg"
+              alt="Our Journey of Trust - BeaconBank Team"
+              className="w-full max-w-md mx-auto drop-shadow-lg"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

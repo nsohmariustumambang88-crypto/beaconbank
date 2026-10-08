@@ -59,40 +59,12 @@ export default function TransfersPage() {
               Start Transferring <ArrowLeft className="w-4 h-4 rotate-180" />
             </Button>
           </div>
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle>Transfer Speed Comparison</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-foreground font-medium">BeaconBank</span>
-                  <span className="text-primary font-bold">0.8s</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: "5%" }}></div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-foreground font-medium">Traditional Banks</span>
-                  <span className="text-foreground">1-3 days</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-muted-foreground h-2 rounded-full" style={{ width: "100%" }}></div>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-foreground font-medium">Other Fintech</span>
-                  <span className="text-foreground">5-30 min</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-muted-foreground h-2 rounded-full" style={{ width: "60%" }}></div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <img
+            src="/images/global-transfers.svg"
+            alt="Global Transfers - Lightning Fast Money Movement"
+            className="w-full drop-shadow-lg rounded-2xl"
+            loading="lazy"
+          />
         </div>
 
         {/* Features */}

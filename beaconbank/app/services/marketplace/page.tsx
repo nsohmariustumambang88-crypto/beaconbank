@@ -59,25 +59,12 @@ export default function MarketplacePage() {
               Launch Your Store <ArrowLeft className="w-4 h-4 rotate-180" />
             </Button>
           </div>
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle>Marketplace Stats</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <p className="text-4xl font-bold text-primary">2,500+</p>
-                <p className="text-muted-foreground">Active Sellers</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-foreground">$450M</p>
-                <p className="text-muted-foreground">Total Sales</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-foreground">98%</p>
-                <p className="text-muted-foreground">Seller Satisfaction</p>
-              </div>
-            </CardContent>
-          </Card>
+          <img
+            src="/images/marketplace-stores.svg"
+            alt="Integrated Marketplace - 2,500+ Active Sellers"
+            className="w-full drop-shadow-lg rounded-2xl"
+            loading="lazy"
+          />
         </div>
 
         {/* Seller Features */}

@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="complianceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.08" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f0fdf4"/>
+  <rect width="400" height="400" fill="url(#complianceGrad)"/>
+
+  <!-- Badge 1: SOC 2 -->
+  <circle cx="100" cy="100" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">SOC 2</text>
+  <text x="100" y="115" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">Type II</text>
+  <path d="M 85 100 L 95 110 L 115 90" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge 2: ISO 27001 -->
+  <circle cx="200" cy="100" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="200" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">ISO</text>
+  <text x="200" y="115" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">27001</text>
+  <path d="M 185 100 L 195 110 L 215 90" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge 3: PCI DSS -->
+  <circle cx="300" cy="100" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="300" y="95" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">PCI</text>
+  <text x="300" y="115" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">DSS L1</text>
+  <path d="M 285 100 L 295 110 L 315 90" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge 4: GDPR -->
+  <circle cx="100" cy="220" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="220" font-family="Arial" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">GDPR</text>
+  <path d="M 85 220 L 95 230 L 115 210" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge 5: AML/KYC -->
+  <circle cx="200" cy="220" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="200" y="215" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">AML/</text>
+  <text x="200" y="230" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">KYC</text>
+  <path d="M 185 220 L 195 230 L 215 210" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge 6: 256-Bit -->
+  <circle cx="300" cy="220" r="35" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+  <text x="300" y="215" font-family="Arial" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">256-</text>
+  <text x="300" y="230" font-family="Arial" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Bit</text>
+  <path d="M 285 220 L 295 230 L 315 210" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Text -->
+  <text x="200" y="330" font-family="Arial" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">Bank-Grade Compliance</text>
+  <text x="200" y="350" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">All certifications verified quarterly</text>
+  <text x="200" y="368" font-family="Arial" font-size="11" fill="#666666" text-anchor="middle">Your data is protected by the highest standards</text>
+</svg>

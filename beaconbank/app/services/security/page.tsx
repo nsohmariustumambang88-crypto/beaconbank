@@ -65,25 +65,12 @@ export default function SecurityPage() {
               Learn More <ArrowLeft className="w-4 h-4 rotate-180" />
             </Button>
           </div>
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle>Security Credentials</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Uptime Guarantee</p>
-                <p className="text-2xl font-bold text-foreground">99.99%</p>
-              </div>
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Security Audit Frequency</p>
-                <p className="text-2xl font-bold text-foreground">Quarterly</p>
-              </div>
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Years in Business</p>
-                <p className="text-2xl font-bold text-primary">3+</p>
-              </div>
-            </CardContent>
-          </Card>
+          <img
+            src="/images/compliance-badges.svg"
+            alt="Compliance Badges - SOC2, ISO27001, GDPR, PCI DSS"
+            className="w-full drop-shadow-lg rounded-2xl"
+            loading="lazy"
+          />
         </div>
 
         {/* Security Features */}

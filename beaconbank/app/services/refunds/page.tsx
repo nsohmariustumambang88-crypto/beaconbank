@@ -59,25 +59,12 @@ export default function RefundsPage() {
               Process Refund <ArrowLeft className="w-4 h-4 rotate-180" />
             </Button>
           </div>
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle>Refund Performance</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
-                <p className="text-4xl font-bold text-primary">98.2%</p>
-                <p className="text-muted-foreground">Success Rate</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-foreground">47sec</p>
-                <p className="text-muted-foreground">Average Processing Time</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-foreground">$890M</p>
-                <p className="text-muted-foreground">Total Refunds Processed</p>
-              </div>
-            </CardContent>
-          </Card>
+          <img
+            src="/images/refund-automation.svg"
+            alt="Automated Refund Processing - Fast Payments"
+            className="w-full drop-shadow-lg rounded-2xl"
+            loading="lazy"
+          />
         </div>
 
         {/* Features */}

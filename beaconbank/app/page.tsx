@@ -67,9 +67,15 @@ export default function Home() {
             </div>
             <span className="font-semibold text-lg text-foreground">BeaconBank</span>
           </Link>
-          <div className="flex items-center gap-4">
-            <a href="#services" className="text-sm hover:text-primary transition">Services</a>
-            <a href="#about" className="text-sm hover:text-primary transition">About</a>
+          <div className="flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6">
+              <Link href="/services/wallet" className="text-sm hover:text-primary transition">💳 Wallet</Link>
+              <Link href="/services/transfers" className="text-sm hover:text-primary transition">⚡ Transfers</Link>
+              <Link href="/services/refunds" className="text-sm hover:text-primary transition">↩️ Refunds</Link>
+              <Link href="/services/recovery" className="text-sm hover:text-primary transition">🔍 Recovery</Link>
+              <Link href="/services/marketplace" className="text-sm hover:text-primary transition">🏪 Marketplace</Link>
+              <Link href="/services/security" className="text-sm hover:text-primary transition">🛡️ Security</Link>
+            </div>
             <Link href="/login">
               <Button size="sm">Sign In</Button>
             </Link>

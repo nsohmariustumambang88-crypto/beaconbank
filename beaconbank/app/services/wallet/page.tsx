@@ -59,25 +59,12 @@ export default function WalletPage() {
               Open Your Wallet <ArrowLeft className="w-4 h-4 rotate-180" />
             </Button>
           </div>
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <CardHeader>
-              <CardTitle>Account Features</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Available Currencies</p>
-                <p className="text-2xl font-bold text-foreground">35+</p>
-              </div>
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Monthly Active Users</p>
-                <p className="text-2xl font-bold text-foreground">500K+</p>
-              </div>
-              <div className="p-4 bg-background/50 rounded-lg">
-                <p className="text-sm text-muted-foreground mb-1">Total Assets Under Management</p>
-                <p className="text-2xl font-bold text-primary">$2.4B</p>
-              </div>
-            </CardContent>
-          </Card>
+          <img
+            src="/images/wallet-currencies.svg"
+            alt="Multi-Currency Wallet - USD, EUR, GBP Support"
+            className="w-full drop-shadow-lg rounded-2xl"
+            loading="lazy"
+          />
         </div>
 
         {/* Currencies */}

@@ -69,6 +69,42 @@ export default function RefundsPage() {
           </div>
         </div>
 
+        {/* Success Stories Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 py-6 md:py-8">
+          <Card className="feature-card border-border/50 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
+              <img
+                src="/images/blog-1.jpg"
+                alt="Online Payment Security"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle className="text-base md:text-lg">Customer Satisfaction Guaranteed</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs sm:text-sm text-muted-foreground">98.2% of refunds processed within 47 seconds average. Happy customers, every time.</p>
+            </CardContent>
+          </Card>
+          <Card className="feature-card border-border/50 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
+              <img
+                src="/images/blog-3.jpg"
+                alt="Smart Money Management"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle className="text-base md:text-lg">Complete Financial Transparency</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs sm:text-sm text-muted-foreground">Full audit trail, detailed reports, and instant notifications on every refund transaction.</p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Features */}
         <div>
           <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">Powerful Refund Features</h3>

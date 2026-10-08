@@ -86,6 +86,42 @@ export default function FundRecoveryPage() {
           </Card>
         </div>
 
+        {/* Real Success Stories */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 py-6 md:py-8">
+          <Card className="feature-card border-border/50 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
+              <img
+                src="/images/choose-1.jpg"
+                alt="Recovery Success Story"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle className="text-base md:text-lg">87% Recovery Success Rate</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs sm:text-sm text-muted-foreground">Our expert fraud investigators have successfully recovered millions for clients worldwide with proven results.</p>
+            </CardContent>
+          </Card>
+          <Card className="feature-card border-border/50 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
+              <img
+                src="/images/blog-6.jpg"
+                alt="International Recovery Support"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle className="text-base md:text-lg">Global Recovery Network</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs sm:text-sm text-muted-foreground">We work with international partners and regulatory bodies to recover funds across borders and jurisdictions.</p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* How It Works */}
         <div>
           <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">How Our Recovery Process Works</h3>

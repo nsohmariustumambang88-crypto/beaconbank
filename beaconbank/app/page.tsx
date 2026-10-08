@@ -125,50 +125,63 @@ export default function Home() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Column */}
-          <div className="space-y-6 md:space-y-8">
-            <div>
-              <h1 className="hero-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-                Expert
-                <br />
-                <span className="text-primary">
-                  Financial
-                </span>
-                <br />
-                Guidance
-              </h1>
+      {/* Hero Section with Background */}
+      <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/images/banner.png"
+            alt="BeaconBank Hero Background"
+            className="w-full h-full object-cover opacity-10"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-background/30"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left Column */}
+            <div className="space-y-6 md:space-y-8">
+              <div>
+                <h1 className="hero-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+                  Expert
+                  <br />
+                  <span className="text-primary">
+                    Financial
+                  </span>
+                  <br />
+                  Guidance
+                </h1>
+              </div>
+
+              <p className="hero-subtitle text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
+                BeaconBank is a comprehensive banking SaaS platform specializing in secure transfers, intelligent fund recovery, and effortless refund management—your trusted guide through every financial decision.
+              </p>
+
+              <div className="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
+                <Link href="/register" className="w-full sm:w-auto">
+                  <Button size="lg" className="gap-2 w-full h-11 md:h-12 text-sm md:text-base">
+                    Open Account <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+                <a href="#services" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="w-full h-11 md:h-12 text-sm md:text-base">
+                    Explore Services
+                  </Button>
+                </a>
+              </div>
             </div>
 
-            <p className="hero-subtitle text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
-              BeaconBank is a comprehensive banking SaaS platform specializing in secure transfers, intelligent fund recovery, and effortless refund management—your trusted guide through every financial decision.
-            </p>
-
-            <div className="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">
-              <Link href="/register" className="w-full sm:w-auto">
-                <Button size="lg" className="gap-2 w-full h-11 md:h-12 text-sm md:text-base">
-                  Open Account <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <a href="#services" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full h-11 md:h-12 text-sm md:text-base">
-                  Explore Services
-                </Button>
-              </a>
+            {/* Right Column - Visual */}
+            <div className="hero-visual relative hidden md:block">
+              <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
+              <img
+                src="/images/banner.png"
+                alt="BeaconBank Platform - Easy Banking"
+                className="w-full max-w-md mx-auto drop-shadow-lg rounded-2xl object-cover"
+                loading="lazy"
+              />
             </div>
-          </div>
-
-          {/* Right Column - Visual */}
-          <div className="hero-visual relative hidden md:block">
-            <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
-            <img
-              src="/images/hero-illustration.svg"
-              alt="BeaconBank Digital Wallet with Multi-Currency Support"
-              className="w-full max-w-md mx-auto drop-shadow-lg rounded-2xl"
-              loading="lazy"
-            />
           </div>
         </div>
       </section>
@@ -305,11 +318,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Success Stories with Real Users */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-2 md:mb-4">Trusted by Thousands Worldwide</h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">Real stories from real users who've transformed their financial lives</p>
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-2 md:mb-4">Real Users, Real Success Stories</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">Thousands of people trust BeaconBank with their financial decisions</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -319,21 +332,32 @@ export default function Home() {
               role: "Entrepreneur",
               content: "BeaconBank helped me recover $45,000 in disputed transactions. The support team was exceptional—professional, transparent, and results-oriented.",
               rating: 5,
+              image: "/images/choose-1.jpg"
             },
             {
               name: "James Chen",
               role: "Business Owner",
               content: "Managing international payments used to be a nightmare. BeaconBank's transfers are instant and the fees are a fraction of traditional banks.",
               rating: 5,
+              image: "/images/choose-2.jpg"
             },
             {
               name: "Emma Rodriguez",
               role: "Freelancer",
               content: "The refund management system saved me hours of manual work. Plus, their security features give me peace of mind for every transaction.",
               rating: 5,
+              image: "/images/choose-3.jpg"
             },
           ].map((testimonial, i) => (
-            <Card key={i} className="testimonial-card border-border/50 bg-card/50 active:scale-95 md:hover:scale-105 md:transition-transform">
+            <Card key={i} className="testimonial-card border-border/50 bg-card/50 active:scale-95 md:hover:scale-105 md:transition-transform overflow-hidden">
+              <div className="relative h-48 sm:h-56 overflow-hidden rounded-t-lg">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col h-full">
                 <div className="flex gap-1 mb-3 md:mb-4">
                   {[...Array(testimonial.rating)].map((_, j) => (
@@ -345,6 +369,80 @@ export default function Home() {
                   <p className="font-semibold text-xs sm:text-sm md:text-base text-foreground">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Learning Hub & Resources */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-2 md:mb-4">Learning Hub & Financial Resources</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">Expert insights, tips, and guides to master your finances</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          {[
+            {
+              title: "Online Payment Security",
+              category: "Security",
+              image: "/images/blog-1.jpg",
+              description: "Learn how to protect yourself from fraud and secure your online transactions."
+            },
+            {
+              title: "Team Financial Planning",
+              category: "Business",
+              image: "/images/blog-2.jpg",
+              description: "Strategies for managing finances across your entire business team and operations."
+            },
+            {
+              title: "Smart Money Management",
+              category: "Personal Finance",
+              image: "/images/blog-3.jpg",
+              description: "Essential tips for budgeting, saving, and making informed financial decisions."
+            },
+            {
+              title: "Digital Payment Trends",
+              category: "Technology",
+              image: "/images/blog-4.jpg",
+              description: "Stay updated with the latest trends in digital payments and fintech innovations."
+            },
+            {
+              title: "Secure Banking Guide",
+              category: "Security",
+              image: "/images/blog-5.jpg",
+              description: "Complete guide to secure banking practices and protecting your digital assets."
+            },
+            {
+              title: "International Transfers",
+              category: "Global Finance",
+              image: "/images/blog-6.jpg",
+              description: "Master international payments, currency conversion, and global money management."
+            },
+          ].map((article, i) => (
+            <Card key={i} className="feature-card border-border/50 overflow-hidden hover:border-primary/30 transition-colors cursor-pointer active:scale-95 md:hover:scale-105 md:transition-transform">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary backdrop-blur-sm">
+                    {article.category}
+                  </span>
+                </div>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-base md:text-lg line-clamp-2">{article.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-4 line-clamp-2">{article.description}</p>
+                <Button variant="ghost" size="sm" className="gap-1 p-0 h-auto text-xs md:text-sm">
+                  Read Article <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                </Button>
               </CardContent>
             </Card>
           ))}

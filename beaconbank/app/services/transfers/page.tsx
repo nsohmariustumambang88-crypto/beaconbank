@@ -69,6 +69,37 @@ export default function TransfersPage() {
           </div>
         </div>
 
+        {/* User Experience Showcase */}
+        <div className="hero-section grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-4 md:mb-6">Secure, Simple, Powerful</h3>
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
+              Transfer money with confidence using our state-of-the-art platform. Whether you're sending funds to family, paying vendors, or managing business payments—we make it effortless.
+            </p>
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              {[
+                "One-click transfers to saved recipients",
+                "Fraud detection with AI monitoring",
+                "Transparent exchange rates",
+                "Instant payment confirmations",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 md:gap-3">
+                  <Zap className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                  <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="order-1 md:order-2">
+            <img
+              src="/images/features-2.png"
+              alt="BeaconBank Mobile Payments - Secure Transfers"
+              className="w-full max-w-sm mx-auto drop-shadow-lg rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
         {/* Features */}
         <div>
           <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">Transfer Features</h3>

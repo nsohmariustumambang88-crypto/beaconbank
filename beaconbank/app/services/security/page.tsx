@@ -122,6 +122,37 @@ export default function SecurityPage() {
           </div>
         </div>
 
+        {/* Security in Action */}
+        <div className="hero-section grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div>
+            <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-4 md:mb-6">Your Trust, Our Responsibility</h3>
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
+              Every BeaconBank user benefits from military-grade security. Whether you're transferring money, managing accounts, or processing refunds—your data is encrypted and protected 24/7.
+            </p>
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              {[
+                "Multi-layer encryption protocols",
+                "Biometric & fingerprint security",
+                "Instant breach notifications",
+                "Zero-knowledge architecture",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 md:gap-3">
+                  <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                  <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <img
+              src="/images/choose-3.jpg"
+              alt="Secure Banking - Credit Card & Mobile Protection"
+              className="w-full max-w-sm mx-auto drop-shadow-lg rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
         {/* Compliance */}
         <div>
           <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">Regulatory Compliance</h3>

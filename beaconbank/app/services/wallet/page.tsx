@@ -5,7 +5,7 @@ import gsap from "gsap"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, CreditCard, Globe, Eye, TrendingUp, Lock } from "lucide-react"
+import { ArrowLeft, CreditCard, Globe, Eye, TrendingUp, Lock, CheckCircle2 } from "lucide-react"
 
 export default function WalletPage() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -64,6 +64,37 @@ export default function WalletPage() {
               src="/images/wallet-currencies.svg"
               alt="Multi-Currency Wallet - USD, EUR, GBP Support"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg md:rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* App Experience Showcase */}
+        <div className="hero-section grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div>
+            <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-4 md:mb-6">App Experience That Works For You</h3>
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
+              Manage your money on the go with our intuitive mobile app. View balances, send transfers, and track expenses—all with bank-grade security at your fingertips.
+            </p>
+            <div className="space-y-3 md:space-y-4">
+              {[
+                "Real-time transaction notifications",
+                "Biometric login (Face ID, Touch ID)",
+                "Detailed spending analytics",
+                "Quick transfer shortcuts",
+              ].map((feature, i) => (
+                <div key={i} className="flex items-center gap-2 md:gap-3">
+                  <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                  <span className="text-xs sm:text-sm md:text-base text-foreground">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <img
+              src="/images/reliable.png"
+              alt="BeaconBank Mobile App - Real-time Transactions"
+              className="w-full max-w-sm mx-auto drop-shadow-lg rounded-2xl"
               loading="lazy"
             />
           </div>

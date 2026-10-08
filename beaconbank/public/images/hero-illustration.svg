@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f0fdf4"/>
+
+  <!-- Gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="400" fill="url(#grad1)"/>
+
+  <!-- Digital Wallet Card -->
+  <rect x="80" y="80" width="240" height="160" rx="20" fill="#ffffff" stroke="#10b981" stroke-width="2" filter="drop-shadow(0 10px 25px rgba(16, 185, 129, 0.15))"/>
+
+  <!-- Card Top Section -->
+  <rect x="80" y="80" width="240" height="40" rx="20" fill="#10b981"/>
+  <circle cx="300" cy="100" r="8" fill="#ffffff"/>
+  <circle cx="315" cy="100" r="8" fill="#ffffff"/>
+  <circle cx="330" cy="100" r="8" fill="#ffffff"/>
+
+  <!-- Card Content -->
+  <text x="100" y="140" font-family="Arial" font-size="12" fill="#666666">Balance</text>
+  <text x="100" y="160" font-family="Arial" font-size="28" font-weight="bold" fill="#10b981">$24,568</text>
+
+  <!-- Floating Elements -->
+  <circle cx="60" cy="280" r="15" fill="#10b981" opacity="0.2"/>
+  <circle cx="340" cy="320" r="20" fill="#059669" opacity="0.15"/>
+  <circle cx="320" cy="60" r="12" fill="#10b981" opacity="0.25"/>
+
+  <!-- Money Flow Lines -->
+  <path d="M 150 240 Q 200 200 250 240" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="5,5" opacity="0.6"/>
+  <polygon points="250,240 255,235 250,245" fill="#10b981" opacity="0.6"/>
+
+  <!-- Statistics Bars -->
+  <rect x="100" y="300" width="30" height="40" fill="#10b981" opacity="0.3" rx="5"/>
+  <rect x="145" y="280" width="30" height="60" fill="#10b981" opacity="0.5" rx="5"/>
+  <rect x="190" y="260" width="30" height="80" fill="#10b981" rx="5"/>
+  <rect x="235" y="290" width="30" height="50" fill="#10b981" opacity="0.4" rx="5"/>
+  <rect x="280" y="310" width="30" height="30" fill="#10b981" opacity="0.25" rx="5"/>
+</svg>

@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.08" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f0fdf4"/>
+  <rect width="400" height="400" fill="url(#dashGrad)"/>
+
+  <!-- Dashboard Card -->
+  <rect x="40" y="40" width="320" height="320" rx="16" fill="#ffffff" stroke="#d1fae5" stroke-width="2" filter="drop-shadow(0 10px 30px rgba(16, 185, 129, 0.12))"/>
+
+  <!-- Header Bar -->
+  <rect x="40" y="40" width="320" height="50" rx="16 16 0 0" fill="#10b981" opacity="0.15"/>
+
+  <!-- Title -->
+  <text x="60" y="70" font-family="Arial" font-size="14" font-weight="bold" fill="#10b981">Dashboard</text>
+  <circle cx="350" cy="65" r="6" fill="#10b981"/>
+  <circle cx="360" cy="65" r="6" fill="#10b981" opacity="0.7"/>
+  <circle cx="370" cy="65" r="6" fill="#10b981" opacity="0.5"/>
+
+  <!-- Balance Section -->
+  <rect x="60" y="110" width="280" height="50" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="75" y="125" font-family="Arial" font-size="10" fill="#999999">Balance</text>
+  <text x="75" y="145" font-family="Arial" font-size="20" font-weight="bold" fill="#10b981">$24,568.90</text>
+
+  <!-- Stats Row 1 -->
+  <rect x="60" y="180" width="85" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="70" y="195" font-family="Arial" font-size="9" fill="#999999">Transfers</text>
+  <text x="70" y="215" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">$12.4K</text>
+  <text x="70" y="232" font-family="Arial" font-size="8" fill="#999999">This month</text>
+
+  <!-- Stats Row 2 -->
+  <rect x="157" y="180" width="85" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="167" y="195" font-family="Arial" font-size="9" fill="#999999">Refunds</text>
+  <text x="167" y="215" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">$3.89K</text>
+  <text x="167" y="232" font-family="Arial" font-size="8" fill="#999999">Processed</text>
+
+  <!-- Stats Row 3 -->
+  <rect x="254" y="180" width="86" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="264" y="195" font-family="Arial" font-size="9" fill="#999999">Accounts</text>
+  <text x="264" y="215" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">3</text>
+  <text x="264" y="232" font-family="Arial" font-size="8" fill="#999999">USD, EUR, GBP</text>
+
+  <!-- Recent Transactions -->
+  <text x="60" y="270" font-family="Arial" font-size="11" font-weight="bold" fill="#333333">Recent Activity</text>
+
+  <!-- Transaction Items -->
+  <circle cx="70" cy="295" r="8" fill="#10b981" opacity="0.2"/>
+  <text x="85" y="300" font-family="Arial" font-size="10" fill="#333333">Sent to Sarah Johnson</text>
+  <text x="280" y="300" font-family="Arial" font-size="10" font-weight="bold" fill="#333333">-$250</text>
+
+  <circle cx="70" cy="325" r="8" fill="#10b981" opacity="0.3"/>
+  <text x="85" y="330" font-family="Arial" font-size="10" fill="#333333">Client Payment Received</text>
+  <text x="280" y="330" font-family="Arial" font-size="10" font-weight="bold" fill="#10b981">+$1.5K</text>
+</svg>

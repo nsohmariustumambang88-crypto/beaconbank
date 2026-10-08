@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.08" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f0fdf4"/>
+  <rect width="400" height="400" fill="url(#teamGrad)"/>
+
+  <!-- Person 1 (Left) -->
+  <circle cx="120" cy="100" r="30" fill="#10b981" opacity="0.8"/>
+  <rect x="100" y="140" width="40" height="60" rx="8" fill="#10b981" opacity="0.7"/>
+  <circle cx="120" cy="220" r="12" fill="#10b981" opacity="0.6"/>
+  <circle cx="110" cy="232" r="8" fill="#10b981" opacity="0.6"/>
+  <circle cx="130" cy="232" r="8" fill="#10b981" opacity="0.6"/>
+
+  <!-- Person 2 (Center) -->
+  <circle cx="200" cy="80" r="35" fill="#10b981" opacity="0.9"/>
+  <rect x="175" y="125" width="50" height="70" rx="10" fill="#10b981" opacity="0.8"/>
+  <circle cx="200" cy="215" r="14" fill="#10b981" opacity="0.7"/>
+  <circle cx="188" cy="230" r="10" fill="#10b981" opacity="0.7"/>
+  <circle cx="212" cy="230" r="10" fill="#10b981" opacity="0.7"/>
+
+  <!-- Person 3 (Right) -->
+  <circle cx="280" cy="100" r="30" fill="#10b981" opacity="0.8"/>
+  <rect x="260" y="140" width="40" height="60" rx="8" fill="#10b981" opacity="0.7"/>
+  <circle cx="280" cy="220" r="12" fill="#10b981" opacity="0.6"/>
+  <circle cx="270" cy="232" r="8" fill="#10b981" opacity="0.6"/>
+  <circle cx="290" cy="232" r="8" fill="#10b981" opacity="0.6"/>
+
+  <!-- Trust Indicators -->
+  <circle cx="140" cy="300" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+  <path d="M 130 300 L 140 310 L 155 295" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <circle cx="200" cy="300" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+  <path d="M 190 300 L 200 310 L 215 295" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <circle cx="260" cy="300" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+  <path d="M 250 300 L 260 310 L 275 295" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Heart -->
+  <path d="M 200 350 L 210 360 L 200 370 L 190 360 Z" fill="#10b981"/>
+
+  <!-- Text -->
+  <text x="100" y="390" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">Our Journey of Trust</text>
+</svg>

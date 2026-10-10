@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 
 const JWT_SECRET = process.env.JWT_SECRET || "default-secret-key-change-in-production"
-const JWT_EXPIRY = process.env.JWT_EXPIRY || "7d"
+const JWT_EXPIRY = (process.env.JWT_EXPIRY || "7d") as jwt.SignOptions["expiresIn"]
 
 interface TokenPayload {
   userId: string

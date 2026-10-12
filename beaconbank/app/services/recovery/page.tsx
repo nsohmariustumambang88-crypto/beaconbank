@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import Link from "next/link"
+import { cdn } from "@/lib/cdn"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, CheckCircle2, Search, FileText, DollarSign, Users } from "lucide-react"
@@ -36,7 +37,7 @@ export default function FundRecoveryPage() {
         {/* Hero Section */}
         <div className="hero-section grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
           <img
-            src="/images/fund-recovery.svg"
+            src={cdn("fund-recovery.svg")}
             alt="Fund Recovery Process - Recover Lost Funds"
             className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg md:rounded-2xl order-2 md:order-1"
             loading="lazy"
@@ -91,7 +92,7 @@ export default function FundRecoveryPage() {
           <Card className="feature-card border-border/50 overflow-hidden">
             <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
-                src="/images/choose-1.jpg"
+                src={cdn("choose-1.jpg")}
                 alt="Recovery Success Story"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -107,7 +108,7 @@ export default function FundRecoveryPage() {
           <Card className="feature-card border-border/50 overflow-hidden">
             <div className="relative h-40 sm:h-48 overflow-hidden">
               <img
-                src="/images/blog-6.jpg"
+                src={cdn("blog-6.jpg")}
                 alt="International Recovery Support"
                 className="w-full h-full object-cover"
                 loading="lazy"

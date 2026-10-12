@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import Link from "next/link"
+import { cdn } from "@/lib/cdn"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Shield, TrendingUp, RefreshCw, CheckCircle2, Users, Zap, Lock, Menu, X } from "lucide-react"
@@ -130,7 +131,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <img
-            src="/images/banner.png"
+            src={cdn("banner.png")}
             alt="BeaconBank Hero Background"
             className="w-full h-full object-cover opacity-10"
             loading="lazy"
@@ -176,7 +177,7 @@ export default function Home() {
             <div className="hero-visual relative hidden md:block">
               <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
               <img
-                src="/images/banner.png"
+                src={cdn("banner.png")}
                 alt="BeaconBank Platform - Easy Banking"
                 className="w-full max-w-md mx-auto drop-shadow-lg rounded-2xl object-cover"
                 loading="lazy"
@@ -207,7 +208,7 @@ export default function Home() {
           </div>
           <div className="order-1 md:order-2">
             <img
-              src="/images/growth-chart.svg"
+              src={cdn("growth-chart.svg")}
               alt="BeaconBank Revenue Growth Chart"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg"
               loading="lazy"
@@ -308,7 +309,7 @@ export default function Home() {
             </div>
             <div className="order-1 md:order-2">
               <img
-                src="/images/team-trust.svg"
+                src={cdn("team-trust.svg")}
                 alt="Our Journey of Trust - BeaconBank Team"
                 className="w-full max-w-xs mx-auto drop-shadow-lg rounded-lg"
                 loading="lazy"
@@ -332,21 +333,21 @@ export default function Home() {
               role: "Entrepreneur",
               content: "BeaconBank helped me recover $45,000 in disputed transactions. The support team was exceptional—professional, transparent, and results-oriented.",
               rating: 5,
-              image: "/images/choose-1.jpg"
+              image: cdn("choose-1.jpg")
             },
             {
               name: "James Chen",
               role: "Business Owner",
               content: "Managing international payments used to be a nightmare. BeaconBank's transfers are instant and the fees are a fraction of traditional banks.",
               rating: 5,
-              image: "/images/choose-2.jpg"
+              image: cdn("choose-2.jpg")
             },
             {
               name: "Emma Rodriguez",
               role: "Freelancer",
               content: "The refund management system saved me hours of manual work. Plus, their security features give me peace of mind for every transaction.",
               rating: 5,
-              image: "/images/choose-3.jpg"
+              image: cdn("choose-3.jpg")
             },
           ].map((testimonial, i) => (
             <Card key={i} className="testimonial-card border-border/50 bg-card/50 active:scale-95 md:hover:scale-105 md:transition-transform overflow-hidden">
@@ -387,37 +388,37 @@ export default function Home() {
             {
               title: "Online Payment Security",
               category: "Security",
-              image: "/images/blog-1.jpg",
+              image: cdn("blog-1.jpg"),
               description: "Learn how to protect yourself from fraud and secure your online transactions."
             },
             {
               title: "Team Financial Planning",
               category: "Business",
-              image: "/images/blog-2.jpg",
+              image: cdn("blog-2.jpg"),
               description: "Strategies for managing finances across your entire business team and operations."
             },
             {
               title: "Smart Money Management",
               category: "Personal Finance",
-              image: "/images/blog-3.jpg",
+              image: cdn("blog-3.jpg"),
               description: "Essential tips for budgeting, saving, and making informed financial decisions."
             },
             {
               title: "Digital Payment Trends",
               category: "Technology",
-              image: "/images/blog-4.jpg",
+              image: cdn("blog-4.jpg"),
               description: "Stay updated with the latest trends in digital payments and fintech innovations."
             },
             {
               title: "Secure Banking Guide",
               category: "Security",
-              image: "/images/blog-5.jpg",
+              image: cdn("blog-5.jpg"),
               description: "Complete guide to secure banking practices and protecting your digital assets."
             },
             {
               title: "International Transfers",
               category: "Global Finance",
-              image: "/images/blog-6.jpg",
+              image: cdn("blog-6.jpg"),
               description: "Master international payments, currency conversion, and global money management."
             },
           ].map((article, i) => (

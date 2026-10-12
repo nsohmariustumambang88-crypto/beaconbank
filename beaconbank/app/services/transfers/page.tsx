@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import Link from "next/link"
+import { cdn } from "@/lib/cdn"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Zap, Globe, Lock, BarChart3, Users } from "lucide-react"
@@ -61,7 +62,7 @@ export default function TransfersPage() {
           </div>
           <div className="order-1 md:order-2">
             <img
-              src="/images/global-transfers.svg"
+              src={cdn("global-transfers.svg")}
               alt="Global Transfers - Lightning Fast Money Movement"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg md:rounded-2xl"
               loading="lazy"
@@ -92,7 +93,7 @@ export default function TransfersPage() {
           </div>
           <div className="order-1 md:order-2">
             <img
-              src="/images/features-2.png"
+              src={cdn("features-2.png")}
               alt="BeaconBank Mobile Payments - Secure Transfers"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-2xl"
               loading="lazy"

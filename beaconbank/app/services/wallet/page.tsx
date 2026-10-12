@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import Link from "next/link"
+import { cdn } from "@/lib/cdn"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, CreditCard, Globe, Eye, TrendingUp, Lock, CheckCircle2 } from "lucide-react"
@@ -61,7 +62,7 @@ export default function WalletPage() {
           </div>
           <div className="order-1 md:order-2">
             <img
-              src="/images/wallet-currencies.svg"
+              src={cdn("wallet-currencies.svg")}
               alt="Multi-Currency Wallet - USD, EUR, GBP Support"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-lg md:rounded-2xl"
               loading="lazy"
@@ -92,7 +93,7 @@ export default function WalletPage() {
           </div>
           <div>
             <img
-              src="/images/reliable.png"
+              src={cdn("reliable.png")}
               alt="BeaconBank Mobile App - Real-time Transactions"
               className="w-full max-w-sm mx-auto drop-shadow-lg rounded-2xl"
               loading="lazy"

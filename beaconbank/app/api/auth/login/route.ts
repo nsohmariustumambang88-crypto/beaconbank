@@ -67,6 +67,7 @@ export async function POST(request: NextRequest) {
           name: user.name,
           accountType: user.accountType,
           kycStatus: user.kycStatus,
+          role: user.role,
         },
         wallets: user.wallets.map(w => ({
           id: w.id,

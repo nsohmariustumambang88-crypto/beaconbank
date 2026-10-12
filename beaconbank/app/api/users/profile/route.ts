@@ -27,6 +27,7 @@ export async function GET(request: NextRequest) {
         phone: true,
         profileImage: true,
         accountType: true,
+        role: true,
         kycStatus: true,
         amlVerified: true,
         wallets: {
@@ -59,6 +60,7 @@ export async function GET(request: NextRequest) {
           phone: user.phone,
           profileImage: user.profileImage,
           accountType: user.accountType,
+          role: user.role,
           kycStatus: user.kycStatus,
           amlVerified: user.amlVerified,
           createdAt: user.createdAt,

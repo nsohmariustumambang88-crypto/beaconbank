@@ -62,9 +62,9 @@ export default function FundRecoveryPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="/dashboard/recovery"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Start Recovery Process <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 col-span-1">
             <CardHeader>

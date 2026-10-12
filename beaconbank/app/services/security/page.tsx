@@ -62,9 +62,9 @@ export default function SecurityPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="#features"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Learn More <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <img
             src={cdn("compliance-badges.svg")}
@@ -76,7 +76,7 @@ export default function SecurityPage() {
 
         {/* Security Features */}
         <div>
-          <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">Security Features</h3>
+          <h3 id="features" className="text-2xl xs:text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8">Security Features</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[
               {
@@ -241,9 +241,9 @@ export default function SecurityPage() {
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Your security is non-negotiable. We use the same encryption banks use. Your money is safe with BeaconBank.
           </p>
-          <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
-            Read Our Security Report <ArrowLeft className="w-4 h-4 rotate-180" />
-          </Button>
+          <Link href="mailto:support@beaconbank.local"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
+            Contact Our Security Team <ArrowLeft className="w-4 h-4 rotate-180" />
+          </Button></Link>
         </div>
       </div>
     </div>

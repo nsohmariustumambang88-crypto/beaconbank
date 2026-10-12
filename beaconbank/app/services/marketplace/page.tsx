@@ -56,9 +56,9 @@ export default function MarketplacePage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="/dashboard/store"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Launch Your Store <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <div className="order-1 md:order-2">
             <img
@@ -235,9 +235,9 @@ export default function MarketplacePage() {
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Launch your store today. Zero commission on your first $10K in sales. Everything you need to succeed.
           </p>
-          <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
+          <Link href="/dashboard/store"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
             Start Selling <ArrowLeft className="w-4 h-4 rotate-180" />
-          </Button>
+          </Button></Link>
         </div>
       </div>
     </div>

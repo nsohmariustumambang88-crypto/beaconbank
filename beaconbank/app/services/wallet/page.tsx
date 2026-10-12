@@ -56,9 +56,9 @@ export default function WalletPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="/register"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Open Your Wallet <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <div className="order-1 md:order-2">
             <img
@@ -208,9 +208,9 @@ export default function WalletPage() {
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Get started in minutes. No documents needed for personal accounts. Multi-currency at your fingertips.
           </p>
-          <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
+          <Link href="/register"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
             Create Account <ArrowLeft className="w-4 h-4 rotate-180" />
-          </Button>
+          </Button></Link>
         </div>
       </div>
     </div>

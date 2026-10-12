@@ -20,6 +20,7 @@ model User {
   phone         String?
   profileImage  String?
   accountType   String    @default("personal") // personal, business, premium
+  role          String    @default("user") // user, admin
   kycStatus     String    @default("pending") // pending, verified, rejected
   amlVerified   Boolean   @default(false)
 
@@ -300,4 +301,17 @@ model ApiKey {
 
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
+}
+
+model Article {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  body        String
+  category    String
+  image       String
+  published   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }

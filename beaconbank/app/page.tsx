@@ -12,6 +12,14 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [stats, setStats] = useState({ users: 0, transactions: 0, recovered: 0 })
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [featuredArticles, setFeaturedArticles] = useState<{ slug: string; title: string; excerpt: string; category: string; image: string }[]>([])
+
+  useEffect(() => {
+    fetch("/api/articles")
+      .then((r) => r.json())
+      .then((j) => j.success && setFeaturedArticles(j.data.articles.slice(0, 6)))
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -384,48 +392,12 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {[
-            {
-              title: "Online Payment Security",
-              category: "Security",
-              image: cdn("blog-1.jpg"),
-              description: "Learn how to protect yourself from fraud and secure your online transactions."
-            },
-            {
-              title: "Team Financial Planning",
-              category: "Business",
-              image: cdn("blog-2.jpg"),
-              description: "Strategies for managing finances across your entire business team and operations."
-            },
-            {
-              title: "Smart Money Management",
-              category: "Personal Finance",
-              image: cdn("blog-3.jpg"),
-              description: "Essential tips for budgeting, saving, and making informed financial decisions."
-            },
-            {
-              title: "Digital Payment Trends",
-              category: "Technology",
-              image: cdn("blog-4.jpg"),
-              description: "Stay updated with the latest trends in digital payments and fintech innovations."
-            },
-            {
-              title: "Secure Banking Guide",
-              category: "Security",
-              image: cdn("blog-5.jpg"),
-              description: "Complete guide to secure banking practices and protecting your digital assets."
-            },
-            {
-              title: "International Transfers",
-              category: "Global Finance",
-              image: cdn("blog-6.jpg"),
-              description: "Master international payments, currency conversion, and global money management."
-            },
-          ].map((article, i) => (
-            <Card key={i} className="feature-card border-border/50 overflow-hidden hover:border-primary/30 transition-colors cursor-pointer active:scale-95 md:hover:scale-105 md:transition-transform">
+          {featuredArticles.map((article) => (
+            <Link key={article.slug} href={`/articles/${article.slug}`}>
+            <Card className="feature-card border-border/50 overflow-hidden hover:border-primary/30 transition-colors cursor-pointer active:scale-95 md:hover:scale-105 md:transition-transform h-full">
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <img
-                  src={article.image}
+                  src={cdn(article.image)}
                   alt={article.title}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   loading="lazy"
@@ -440,12 +412,13 @@ export default function Home() {
                 <CardTitle className="text-base md:text-lg line-clamp-2">{article.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-xs sm:text-sm text-muted-foreground mb-4 line-clamp-2">{article.description}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-4 line-clamp-2">{article.excerpt}</p>
                 <Button variant="ghost" size="sm" className="gap-1 p-0 h-auto text-xs md:text-sm">
                   Read Article <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                 </Button>
               </CardContent>
             </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -488,28 +461,25 @@ export default function Home() {
             <div>
               <h4 className="font-semibold text-xs md:text-sm mb-3">Services</h4>
               <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition">Wallet</a></li>
-                <li><a href="#" className="hover:text-primary transition">Transfers</a></li>
-                <li><a href="#" className="hover:text-primary transition">Recovery</a></li>
-                <li><a href="#" className="hover:text-primary transition">Refunds</a></li>
+                <li><Link href="/services/wallet" className="hover:text-primary transition">Wallet</Link></li>
+                <li><Link href="/services/transfers" className="hover:text-primary transition">Transfers</Link></li>
+                <li><Link href="/services/recovery" className="hover:text-primary transition">Recovery</Link></li>
+                <li><Link href="/services/refunds" className="hover:text-primary transition">Refunds</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-xs md:text-sm mb-3">Company</h4>
               <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition">About</a></li>
-                <li><a href="#" className="hover:text-primary transition">Blog</a></li>
-                <li><a href="#" className="hover:text-primary transition">Careers</a></li>
-                <li><a href="#" className="hover:text-primary transition">Contact</a></li>
+                <li><a href="#about" className="hover:text-primary transition">About</a></li>
+                <li><Link href="/articles" className="hover:text-primary transition">Blog</Link></li>
+                                <li><a href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`} className="hover:text-primary transition">Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-xs md:text-sm mb-3">Legal</h4>
               <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition">Privacy</a></li>
-                <li><a href="#" className="hover:text-primary transition">Terms</a></li>
-                <li><a href="#" className="hover:text-primary transition">Security</a></li>
-                <li><a href="#" className="hover:text-primary transition">Compliance</a></li>
+                                                <li><Link href="/services/security" className="hover:text-primary transition">Security</Link></li>
+                <li><Link href="/services/security" className="hover:text-primary transition">Compliance</Link></li>
               </ul>
             </div>
           </div>

@@ -56,9 +56,9 @@ export default function RefundsPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="/dashboard/refund"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Process Refund <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <div className="order-1 md:order-2">
             <img
@@ -190,9 +190,9 @@ export default function RefundsPage() {
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Start processing refunds smarter today. Reduce manual work, improve customer satisfaction.
           </p>
-          <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
+          <Link href="/dashboard/refund"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
             Enable Refunds <ArrowLeft className="w-4 h-4 rotate-180" />
-          </Button>
+          </Button></Link>
         </div>
       </div>
     </div>

@@ -56,9 +56,9 @@ export default function TransfersPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
+            <Link href="/dashboard/transfer"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base w-full sm:w-auto">
               Start Transferring <ArrowLeft className="w-4 h-4 rotate-180" />
-            </Button>
+            </Button></Link>
           </div>
           <div className="order-1 md:order-2">
             <img
@@ -202,9 +202,9 @@ export default function TransfersPage() {
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Join thousands sending money instantly. No delays, no drama, just fast transfers.
           </p>
-          <Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
+          <Link href="/dashboard/transfer"><Button size="lg" className="gap-2 h-10 md:h-12 text-sm md:text-base">
             Make Your First Transfer <ArrowLeft className="w-4 h-4 rotate-180" />
-          </Button>
+          </Button></Link>
         </div>
       </div>
     </div>

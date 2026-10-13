@@ -135,16 +135,16 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Background */}
-      <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden">
+      <section className="relative isolate py-12 md:py-20 lg:py-32 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <img
             src={cdn("blog-2.jpg")}
             alt="BeaconBank team reviewing their finances together"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-45"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60"></div>
+          <div className="absolute inset-0 bg-background/60"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

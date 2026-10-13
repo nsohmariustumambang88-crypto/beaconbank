@@ -11,7 +11,7 @@ import { saveSession } from "@/lib/session"
 export default function RegisterPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const [form, setForm] = useState({ name: "", email: "", password: "", passwordConfirm: "" })
+  const [form, setForm] = useState({ name: "", email: "", phone: "", password: "", passwordConfirm: "" })
   const [agreed, setAgreed] = useState(false)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
@@ -87,6 +87,10 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <label htmlFor="email" className="text-xs md:text-sm font-medium">Email</label>
               <input id="email" type="email" required value={form.email} onChange={update("email")} placeholder="you@example.com" className={inputClass} />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="phone" className="text-xs md:text-sm font-medium">Phone Number</label>
+              <input id="phone" type="tel" inputMode="tel" required value={form.phone} onChange={update("phone")} placeholder="+1 555 123 4567" autoComplete="tel" className={inputClass} />
             </div>
             <div className="space-y-2">
               <label htmlFor="password" className="text-xs md:text-sm font-medium">Password (min. 8 characters)</label>

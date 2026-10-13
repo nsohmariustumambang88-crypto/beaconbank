@@ -23,6 +23,8 @@ export async function POST(request: NextRequest) {
     if (!body.passwordConfirm) errors.passwordConfirm = "Password confirmation is required"
     if (body.password !== body.passwordConfirm) errors.passwordConfirm = "Passwords do not match"
     if (body.password && body.password.length < 8) errors.password = "Password must be at least 8 characters"
+    if (!body.phone) errors.phone = "Phone number is required"
+    else if (!/^\+?[0-9][0-9 ()-]{6,18}[0-9]$/.test(body.phone)) errors.phone = "Enter a valid phone number"
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json(validationError(errors), { status: 422 })
@@ -48,7 +50,7 @@ export async function POST(request: NextRequest) {
       data: {
         email: body.email,
         name: body.name,
-        phone: body.phone || null,
+        phone: body.phone,
         password: hashedPassword,
         accountType: "personal",
       },

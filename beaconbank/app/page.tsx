@@ -139,12 +139,12 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <img
-            src={cdn("banner.png")}
-            alt="BeaconBank Hero Background"
-            className="w-full h-full object-cover opacity-10"
+            src={cdn("blog-2.jpg")}
+            alt="BeaconBank team reviewing their finances together"
+            className="w-full h-full object-cover opacity-20"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-background/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,9 +185,9 @@ export default function Home() {
             <div className="hero-visual relative hidden md:block">
               <div className="float-animation absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
               <img
-                src={cdn("banner.png")}
-                alt="BeaconBank Platform - Easy Banking"
-                className="w-full max-w-md mx-auto drop-shadow-lg rounded-2xl object-cover"
+                src={cdn("blog-2.jpg")}
+                alt="BeaconBank team reviewing their finances together"
+                className="w-full max-w-md mx-auto drop-shadow-lg rounded-3xl object-cover h-[420px]"
                 loading="lazy"
               />
             </div>

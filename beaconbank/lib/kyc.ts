@@ -27,3 +27,15 @@ export function validateKycDetails(body: Record<string, unknown>) {
   if (!str("selfieId")) errors.selfieId = "Upload a selfie holding your ID"
   return { errors, cleaned: { fullName: str("fullName"), dateOfBirth: str("dateOfBirth"), country: str("country"), addressLine: str("addressLine"), city: str("city"), postalCode: str("postalCode"), idType: str("idType"), idNumberLast4: idNumber.slice(-4), idDocumentId: str("idDocumentId"), selfieId: str("selfieId") } }
 }
+
+export async function kycBlock(userId: string) {
+  if (!requiresKyc()) return null
+  const { prisma } = await import("@/lib/prisma")
+  const { NextResponse } = await import("next/server")
+  const me = await prisma.user.findUnique({ where: { id: userId }, select: { kycStatus: true } })
+  if (me?.kycStatus === "verified") return null
+  return NextResponse.json(
+    { success: false, message: "Verification required", error: "Verify your identity in the Verification page first", code: 403 },
+    { status: 403 }
+  )
+}

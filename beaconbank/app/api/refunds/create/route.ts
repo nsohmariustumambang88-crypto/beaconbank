@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma"
+import { kycBlock } from "@/lib/kyc"
 import { verifyToken, extractTokenFromHeader } from "@/lib/auth"
 import { successResponse, errorResponse, unauthorizedError, validationError } from "@/lib/api-response"
 import { NextRequest, NextResponse } from "next/server"
@@ -25,6 +26,9 @@ export async function POST(request: NextRequest) {
     if (!payload) {
       return NextResponse.json(unauthorizedError(), { status: 401 })
     }
+
+    const blocked = await kycBlock(payload.userId)
+    if (blocked) return blocked
 
     const body: CreateRefundRequest = await request.json()
 

@@ -150,7 +150,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <p className="text-2xl md:text-3xl font-bold text-foreground capitalize">{profile?.kycStatus ?? "—"}</p>
-              <p className="text-xs text-muted-foreground mt-2">KYC status</p>
+              <Link href="/dashboard/kyc" className="text-xs text-primary hover:underline mt-2 inline-block">{profile?.kycStatus === "verified" ? "View details" : "Verify now"}</Link>
             </CardContent>
           </Card>
         </div>
@@ -204,6 +204,7 @@ export default function DashboardPage() {
                 <Link href="/dashboard/transfer"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🔄 Transfer</Button></Link>
                 <Link href="/dashboard/refund"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">↩️ Request refund</Button></Link>
                 <Link href="/dashboard/recovery"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🔍 Open recovery case</Button></Link>
+                <Link href="/dashboard/kyc"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🪪 Verify identity</Button></Link>
                 <Link href="/dashboard/store"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🏪 Open a store</Button></Link>
               </CardContent>
             </Card>

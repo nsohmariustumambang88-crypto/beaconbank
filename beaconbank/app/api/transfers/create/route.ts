@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma"
 import { verifyToken, extractTokenFromHeader } from "@/lib/auth"
 import { successResponse, errorResponse, unauthorizedError, validationError } from "@/lib/api-response"
 import { NextRequest, NextResponse } from "next/server"
+import { requiresKyc } from "@/lib/kyc"
 
 interface CreateTransferRequest {
   recipientEmail: string
@@ -22,6 +23,16 @@ export async function POST(request: NextRequest) {
     const payload = verifyToken(token)
     if (!payload) {
       return NextResponse.json(unauthorizedError(), { status: 401 })
+    }
+
+    if (requiresKyc()) {
+      const me = await prisma.user.findUnique({ where: { id: payload.userId }, select: { kycStatus: true } })
+      if (me?.kycStatus !== "verified") {
+        return NextResponse.json(
+          errorResponse("Verification required", "Verify your identity in the Verification page before sending money"),
+          { status: 403 }
+        )
+      }
     }
 
     const body: CreateTransferRequest = await request.json()

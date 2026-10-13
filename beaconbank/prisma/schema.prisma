@@ -32,6 +32,7 @@ model User {
   recoveries    FundRecovery[]
   marketplace   MarketplaceStore?
   securityLogs  SecurityLog[]
+  kycSubmissions KycSubmission[]
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -314,4 +315,32 @@ model Article {
   published   Boolean   @default(false)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+model KycSubmission {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fullName        String
+  dateOfBirth     String
+  country         String
+  addressLine     String
+  city            String
+  postalCode      String
+  idType          String    // passport, national_id, drivers_license
+  idNumberLast4   String
+  idDocumentId    String    // Cloudinary public_id (private)
+  selfieId        String    // Cloudinary public_id (private)
+
+  status          String    @default("pending") // pending, approved, rejected
+  reviewNote      String?
+  reviewedBy      String?
+  reviewedAt      DateTime?
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([status])
 }

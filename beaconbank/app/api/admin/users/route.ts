@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   const users = await prisma.user.findMany({
     orderBy: { createdAt: "desc" },
     take: 100,
-    select: { id: true, email: true, name: true, role: true, accountType: true, createdAt: true },
+    select: { id: true, email: true, name: true, role: true, accountType: true, createdAt: true, wallets: { select: { currency: true, balance: true } } },
   })
   return NextResponse.json(successResponse("Users retrieved", { users }))
 }

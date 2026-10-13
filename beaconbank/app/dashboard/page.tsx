@@ -204,6 +204,7 @@ export default function DashboardPage() {
                 <Link href="/dashboard/transfer"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🔄 Transfer</Button></Link>
                 <Link href="/dashboard/refund"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">↩️ Request refund</Button></Link>
                 <Link href="/dashboard/recovery"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🔍 Open recovery case</Button></Link>
+                <Link href="/dashboard/withdraw"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🏦 Withdraw to bank</Button></Link>
                 <Link href="/dashboard/kyc"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🪪 Verify identity</Button></Link>
                 <Link href="/dashboard/store"><Button variant="outline" className="w-full justify-start h-9 md:h-10 text-xs md:text-sm">🏪 Open a store</Button></Link>
               </CardContent>

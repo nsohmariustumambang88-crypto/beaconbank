@@ -33,6 +33,7 @@ model User {
   marketplace   MarketplaceStore?
   securityLogs  SecurityLog[]
   kycSubmissions KycSubmission[]
+  withdrawals    Withdrawal[]
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -53,6 +54,7 @@ model Wallet {
   // Relationships
   transactions  Transaction[]
   transfers     Transfer[] @relation("SenderTransfers")
+  withdrawals   Withdrawal[]
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -340,6 +342,35 @@ model KycSubmission {
 
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Withdrawal {
+  id                String    @id @default(cuid())
+  userId            String
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  walletId          String
+  wallet            Wallet    @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  amount            Decimal   @db.Decimal(18, 2)
+  fee               Decimal   @db.Decimal(18, 2)
+  currency          String
+
+  bankName          String
+  accountHolder     String
+  accountLast4      String
+  accountNumberEnc  String
+  iban              String?
+
+  status            String    @default("pending") // pending, completed, rejected, cancelled
+  reviewNote        String?
+  reviewedBy        String?
+  reviewedAt        DateTime?
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 
   @@index([userId])
   @@index([status])
